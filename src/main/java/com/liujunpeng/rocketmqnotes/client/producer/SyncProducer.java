@@ -27,7 +27,7 @@ public class SyncProducer {
 
         for (int i = 0; i <= 100; i++) {
             //创建消息，指定tipic，tag
-            Message message = new Message("async-message", "sync-tag", ("HelloRocketMQ" + i).getBytes(StandardCharsets.UTF_8));
+            Message message = new Message("sync-message", "sync-tag", ("HelloRocketMQ" + i).getBytes(StandardCharsets.UTF_8));
             // 发送消息到一个Broker
             SendResult sendResult = producer.send(message);
             System.out.println("同步发送消息返回结果：" + sendResult);

@@ -18,9 +18,9 @@ public class ConsumerTwo {
         //设置nameServe
         consumer.setNamesrvAddr("www.liujunpeng.com:9876");
         // 订阅一个或者多个Topic，以及Tag来过滤需要消费的消息
-        consumer.subscribe("async-message", "*");
+        consumer.subscribe("sync-message", "*");
         //集群模式消费
-        consumer.setMessageModel(MessageModel.CLUSTERING);
+        consumer.setMessageModel(MessageModel.BROADCASTING);
         //注册回调实现类来处理从broker拉取回来的消息
         consumer.registerMessageListener((MessageListenerConcurrently) (msgs, context) -> {
             msgs.forEach(messageExt -> System.out.println(new String(messageExt.getBody())));
